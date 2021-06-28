@@ -1,3 +1,4 @@
+<?php include "includes/db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,20 +8,32 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Notaria 161 CDMX</title>
+
+
+    <script language="javascript" src="js/jquery-3.1.1.min.js"></script>
+
+
+
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
-     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/r-2.2.9/datatables.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    
+
+
+
     <script src="https://kit.fontawesome.com/b996cd7760.js" crossorigin="anonymous"></script>
-   
-   
+
+
+
+  
+
+
+
 </head>
 
 <body>

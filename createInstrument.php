@@ -48,11 +48,9 @@ $data = base64_encode($myJSON); // codifiando el json a base64
 
 $sendArreglo = array(
   "deviceId" => "8f25831d-be37-48fb-9539-84cef7da22cc",
-  "seedId" => 50,
+  "seedId" => 100,
   "b64Aes256DataSet" => $data,
-  "b64Aes256Token" => "Aq5gRPmheKy1tZhxno/tGLUCNqliNjtrFBp7T53Sepk9u52QWL573aI6iJ0HELzD61FLlAZ6rXL+Kc5whR22rw1+JFnq5KICkkt2QSzTsMmJwi8VOIaQ9sRuiFmE9/n1jMn8vG+f113jSd89uuVt3FT6Cq6OVDkEv9KOjC7CNC/Ac6gH92DDHAASpXhv7cWU2X3UoCoih046UXiDIg0jVitHnQG0WdlMcBhH9yAtEbGYE2mL6XlbKoHpXvu1AAJ72oTWFXSfl43T/x7SWSnpwStzeJtdd3V3GlxN76S4/XeF+pqdV9MLFnbLbGyB2HLeYajv1oq5C0BOhTlUdoX6HQ=="
-
-);
+  "b64Aes256Token" => "rJ0kb7m7Ti/4Fl0pHIkw+4x3x1bMhBzkD6MxsqKbcLbjaTMb+L4ymAr9dPwO8UsND+WXnDbrSyzz6WozHmLYbUhpC9Yyzsa9aWCGd8DaYnWih1dYYdSwWX8FEYK7DP+R2tuvmUCqN5YXbEeijQO9bcglFv8dq2AFgjm7HutnlVHQpfInKBFFiKNbp9hJ22kKZsxg17mNnD7T3VQCtaEPSO06ZRpgRBNHYedVQutl316jJxWpQ52R25lfkfWLabWKRPmQOzHHb8Z6kjSIb0KvPoNgNnPsl9qTtS/h7+Zygh6y+u+03bfIvxA2ba307wqCk68X+fAqvNj28+LN951TUA==");
 
 # var_dump($sendArreglo)
 # Setup request to send json via POST.

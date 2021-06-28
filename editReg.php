@@ -27,6 +27,8 @@ if (isset($_GET['Expediente'])) {
 }
 
 
+$pasar = $obtenerExp;
+
 ?>
 
 <?php include "includes/header.php" ?>
@@ -52,8 +54,8 @@ if (isset($_GET['Expediente'])) {
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Agregar compareciente <i class="fas fa-address-card"></i>
                             </button>
-                            <button type="button" class="btn btn-info btn-block">
-                                Agregar Inmueble <i class="fas fa-house-user"></i>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-info btn-block">
+                                Agregar Acto <i class="fas fa-house-user"></i>
                             </button>
                         </div>
                     </div>
@@ -67,10 +69,17 @@ if (isset($_GET['Expediente'])) {
         <div class="container-fluid">
             <div class="row">
 
+
+                <div class="col-md-12" style="background-color: grey; margin-bottom: 30px;">
+                    <h3 class="text-center" style="color: #fff;">
+                        Datos del expediente
+                    </h3>
+                </div>
+
                 <div class="col-md-12">
                     <form>
                         <div class="form-group row" style="margin-bottom: 10px;">
-                            <label for="TxtExpediente" class="col-4 col-form-label" style="background-color: grey; color: white;">No. Escritura</label>
+                            <label for="TxtExpediente" class="col-4 col-form-label" style="background-color: grey; color: white;">No. Expediente</label>
                             <div class="col-8">
                                 <input id="TxtExpediente" name="TxtExpediente" type="text" value="<?php echo $obtenerExp ?>" class="form-control" readonly>
                             </div>
@@ -81,12 +90,7 @@ if (isset($_GET['Expediente'])) {
                                 <input id="TxtEscritura" name="TxtEscritura" type="text" value="<?php echo $getEscritura ?>" class="form-control" readonly>
                             </div>
                         </div>
-                        <div class="form-group row" style="margin-bottom: 10px;">
-                            <label for="TxtOperacion" class="col-4 col-form-label" style="background-color: grey; color: white;">Operación</label>
-                            <div class="col-8">
-                                <input id="TxtOperacion" name="TxtOperacion" type="text" value="<?php echo $getOperacion ?>" class="form-control" readonly>
-                            </div>
-                        </div>
+                        
                         <div class="form-group row" style="margin-bottom: 10px;">
                             <label for="TxtVolumen" class="col-4 col-form-label" style="background-color: grey; color: white;">Volumen</label>
                             <div class="col-8">
@@ -113,13 +117,18 @@ if (isset($_GET['Expediente'])) {
                         </div>
 
 
-                        
-                                <div class="col-md-12" style="background-color: grey;">
-                                    <h3 class="text-center" style="color: #fff;">
-                                        h3. Lorem ipsum dolor sit amet.
-                                    </h3>
-                                </div>
-                         
+
+                        <div class="col-md-12" style="background-color: grey;">
+                            <h3 class="text-center" style="color: #fff;">
+                                Comparecientes por acto
+                            </h3>
+                        </div>
+
+
+                        <!--tabla aqui-->
+                        <?php include "tables/tablacomxact.php"; ?>
+
+
 
                         <div class="form-group row" style="margin-bottom: 10px;">
                             <div class="d-grid gap-2">
@@ -150,34 +159,145 @@ if (isset($_GET['Expediente'])) {
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cargar Compareciente</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <form>
+                <form method="POST" action="guardarRegistro.php">
+
+
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="txtActoComp">Acto</label>
+                        <div>
+                            <select id="txtActoComp" class="form-control" name="txtActoComp">
+                                <option selected value disabled="">Seleccione un acto:</option>
+                                <?php
+                                $query = $conn->query("SELECT * FROM actosDelRin E LEFT JOIN actosRin D ON E.Acto = D.id WHERE E.Expediente = '$obtenerExp'");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                    echo utf8_encode('<option value="' . $valores['Acto'] . '">' . $valores['label'] . '</option>');
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="txtComparenciente">Compareciente</label>
+                        <div>
+                            <select id="txtComparenciente" class="form-control" name="txtComparenciente">
+                                <option selected value disabled="">Seleccione un compareciente:</option>
+                                <?php
+                                $query = $conn->query("SELECT * FROM otorgantes WHERE Expediente = '$obtenerExp'");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                    echo utf8_encode('<option value="' . $valores['Nombre'] . '">' . $valores['Nombre'] . '</option>');
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="txtTipo">Rol</label>
+                        <div>
+                            <select id="txtTipo" class="form-control" name="txtTipo" class="form-control">
+                                <option selected value disabled="">Seleccione un rol:</option>
+                                <?php
+                                $query = $conn->query("SELECT * FROM rolesDeActos");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                    echo utf8_encode('<option value="' . $valores['id'] . '">' . $valores['role'] . '</option>');
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-3 form-check">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">CURP</label>
+                        <input type="text" class="form-control" maxlength="18" name="txtCURP" placeholder="AAAA000000AAAAAAA0">
+                        <pre id="resultado"></pre>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtRFC" class="form-label">RFC</label>
+                        <input type="text" class="form-control" maxlength="13" id="txtRFC" name="txtRFC" placeholder="AAAA000000AA0">
+                    </div>
+                    <div class="mb-3">
+                        <input type="hidden" class="form-control" id="pasarExpediente" name="pasarExpediente" value="<?php echo $pasar?>">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" name="btnGuardarCompareciente" class="btn btn-primary">Save changes</button>
+
+                    </div>
+
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal 2 -->
+<div class="modal fade" id="exampleModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cargar acto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="guardarRegistro.php" method="POST">
+
+                    <div class="mb-3">
+                        <label for="txtGrupoActos">Grupo de actos</label>
+                        <div>
+                            <select id="txtGrupoActos" class="form-control" name="txtGrupoActos">
+                                <option selected value disabled="">Seleccione un grupo de actos:</option>
+                                <?php
+                                $query = $conn->query("SELECT * FROM gruposActos");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                    echo utf8_encode('<option value="' . $valores['id'] . '">' . $valores['label'] . '</option>');
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtActo">Acto</label>
+                        <div>
+                            <select id="txtActo" class="form-control" name="txtActo">
+                                <?php
+                                $query = $conn->query("SELECT * FROM actosRin");
+                                while ($valores = mysqli_fetch_array($query)) { ?>
+                                    <option value="<?php echo $valores['id'] ?>">
+                                        <?php echo utf8_encode($valores['label']) ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="hidden" value="<?php echo $pasar ?>" class="form-control" id="escriPost" name="escriPost">
+                    </div>
+
+
+                    <!-- <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                    </div> -->
+
+
 
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" name="btnGuardarActo" class="btn btn-primary">Save changes</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

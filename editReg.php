@@ -1,6 +1,8 @@
 <?php include "includes/db.php" ?>
 <?php
 
+$obtenerExp = "SIN";
+
 if (isset($_GET['Expediente'])) {
     $getExp = $_GET['Expediente'];
 

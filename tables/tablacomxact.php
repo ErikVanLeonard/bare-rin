@@ -2,9 +2,7 @@
     <div class="col-md-12">
         <table class="table table-bordered table-sm table-responsive">
             <thead>
-                <tr>
-                  
-                </tr>
+               
             </thead>
             <thead>
                 <tr>
@@ -30,7 +28,7 @@
             </thead>
             <tbody>
                 
-                    <td>
+                   
                         <?php
 
 
@@ -55,9 +53,9 @@
 
                 </tr>
                 </form>
-            <?php } ?>
-            </td>
-           
+            <?php } ?> 
+         
+         
 
             </tbody>
         </table>

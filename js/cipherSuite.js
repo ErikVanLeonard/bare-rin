@@ -1040,21 +1040,21 @@ var cipherSuite = {
 	getEncryptedBody: function(payload, seed, token, deviceId) {
 		try {
 			console.log('dataToCipher-->', payload)
-			let dataToCipher = JSON.stringify(payload)
-			let key = cipherSuite.base64ToString(seed.b64Key)
-			let iv = cipherSuite.base64ToString(seed.b64IV)
+			let dataToCipher = JSON.stringify(payload) // convierte payload a json
+			let key = cipherSuite.base64ToString(seed.b64Key) // convierte b64key a string
+			let iv = cipherSuite.base64ToString(seed.b64IV) // convierte IV a string
 			
-			let aes256Token = cipherSuite.aesEncrypt(token, key, iv)
+			let aes256Token = cipherSuite.aesEncrypt(token, key, iv) // encripta a aes256 el token
 			let b64Aes256Token = cipherSuite.stringToBase64(aes256Token.data.encryptedText)
 			
 			let aes256Payload = cipherSuite.aesEncrypt(dataToCipher, key, iv)
 			let b64Aes256DataSet = cipherSuite.stringToBase64(aes256Payload.data.encryptedText)
 			
 			return {
+				deviceId: deviceId,
 			    seedId: seed.id,
-			    deviceId: deviceId,
-			    b64Aes256Token: b64Aes256Token,
-			    b64Aes256DataSet: b64Aes256DataSet
+			    b64Aes256DataSet: b64Aes256DataSet,
+			    b64Aes256Token: b64Aes256Token
 			}
 		} catch(error) {
 			console.log('getEncryptedBody-->', error)

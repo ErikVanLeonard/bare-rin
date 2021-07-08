@@ -1,0 +1,239 @@
+{
+	"acts": [
+		{
+			"index": 0,
+			"noPass": false,
+			"actGroupId": 1,
+			"actTypeId": 14,
+			"persons": [],
+			"companies": [],
+			"properties": [],
+			"socialPrograms": []
+		},
+		{
+			"index": 1,
+			"noPass": false,
+			"actGroupId": 1,
+			"actTypeId": 1,
+			"persons": [
+				{
+					"roleId": 500,
+					"labelRole": "OTRO FISICO",
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": []
+					},
+					"personId": 155
+				}
+			],
+			"companies": [
+				{
+					"roleId": 500,
+					"labelRole": "OTRO MORAL",
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": []
+					},
+					"companyId": 56
+				}
+			],
+			"properties": [],
+			"socialPrograms": [2]
+		},
+		{
+			"index": 2,
+			"noPass": false,
+			"actGroupId": 10,
+			"actLabel": "OTRA HIPOTECA",
+			"actTypeId": 0,
+			"persons": [
+				{
+					"roleId": 25,
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": []
+					},
+					"personId": 155
+				}
+			],
+			"companies": [
+				{
+					"roleId": 61,
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": []
+					}, 
+					"companyId": 56
+				}
+			],
+			"properties": [],
+			"socialPrograms": []
+		},
+		{
+			"index": 3,
+			"noPass": false,
+			"actGroupId": 11,
+			"actLabel": "OTRO OTRO",
+			"actTypeId": 0,
+			"persons": [
+				{
+					"roleId": 117,
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": []
+					},
+					"personId": 156,
+					"isSigner": true
+				},
+				{
+					"roleId": 19,
+					"index": 1,
+					"representatives": {
+						"companies": [
+							{
+								"companyId": 57
+							}
+						],
+						"persons": [
+							{
+								"requesterId": 172
+							}
+						]
+					},
+					"personId": 167
+				},
+				{
+					"roleId": 52,
+					"index": 2,
+					"representatives": {
+						"companies": [],
+						"persons": [
+							{
+								"requesterId": 155
+							},
+							{
+								"requesterId": 171,
+								"isSigner": true
+							}
+						]
+					},
+					"personId": 167
+				}
+			],
+			"companies": [],
+			"properties": [],
+			"socialPrograms": []
+		},
+		{
+			"actGroupId": 4,
+			"index": 4,
+			"actTypeId": 51,
+			"persons": [],
+			"companies": [
+				{
+					"roleId": 117,
+					"index": 0,
+					"representatives": {
+						"companies": [],
+						"persons": [
+							{
+								"requesterId": 155
+							}
+						]
+					},
+					"companyId": 55
+				},
+				{
+					"roleId": 40,
+					"index": 1,
+					"representatives": {
+						"companies": [],
+						"persons": [
+							{
+								"requesterId": 166,
+								"isSigner": true
+							}
+						]
+					},
+					"companyId": 68
+				},
+				{
+					"roleId": 24,
+					"index": 2,
+					"representatives": {
+						"companies": [
+							{
+								"companyId": 57
+							}
+						],
+						"persons": []
+					},
+					"companyId": 56
+				}
+			]
+		},
+		{
+			"actGroupId": 2,
+			"index": 5,
+			"noPass": true,
+			"actTypeId": 27,
+			"persons": [
+				{
+					"roleId": 114,
+					"index": 0,
+					"representatives": {
+						"companies": [
+							{
+								"companyId": 56
+							}
+						],
+						"persons": [
+							{
+								"requesterId": 155
+							}
+						]
+					},
+					"personId": 156
+				}
+			],
+			"companies": [
+				{
+					"roleId": 38,
+					"representatives": {
+						"companies": [
+							{
+								"companyId": 56
+							}
+						],
+						"persons": [
+							{
+								"requesterId": 155,
+								"isSigner": false
+							}
+						]
+					},
+					"companyId": 55
+				}
+			],
+			"properties": [
+				{
+					"index": 0,
+					"propertyId": 89
+				},
+				{
+					"index": 1,
+					"propertyId": 90
+				}
+			]
+		}
+	],
+	"archive": 161,
+	"bookCollectionId": 2,
+	"instrumentBookId": 20,
+	"instrumentId": 27
+}

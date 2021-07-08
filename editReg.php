@@ -79,7 +79,7 @@ $pasar = $obtenerExp;
                 </div>
 
                 <div class="col-md-12">
-                    <form>
+                    <form id="formulario">
                         <div class="form-group row" style="margin-bottom: 10px;">
                             <label for="TxtExpediente" class="col-4 col-form-label" style="background-color: grey; color: white;">No. Expediente</label>
                             <div class="col-8">

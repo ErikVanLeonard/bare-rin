@@ -35,7 +35,6 @@ if(isset($_POST['btnGuardarCompareciente'])){
     $txtActoComp = $_POST['txtActoComp'];
     
     
-   
     $query = "INSERT INTO  comparecientesRin(NombreCompareciente, Expediente, TIpo, CURP, RFC, Acto) VALUES ('$txtComparencientes','$pasarExpediente','$txtTipo','$txtCURP','$txtRFC','$txtActoComp')";
     $result = mysqli_query($conn,$query);
 
@@ -46,8 +45,6 @@ if(isset($_POST['btnGuardarCompareciente'])){
 
    // $_SESSION['message'] = 'Guardado Satisfactoriamente';
     //$_SESSION['message_type'] = 'success';
-
-
    header("Location: editReg.php?Expediente=".$pasarExpediente);
 
 }

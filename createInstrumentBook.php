@@ -16,7 +16,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>json_encode($body),
+  CURLOPT_POSTFIELDS =>$body,
   CURLOPT_HTTPHEADER => array(
     'Content-Type: application/json'
   ),

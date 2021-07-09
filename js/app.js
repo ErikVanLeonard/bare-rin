@@ -10,7 +10,7 @@ formulario.addEventListener('submit', function(e){
 
     let ArraySeed = ("{\"b64Key\": \"BsEf/RMnjIPMy0Lz17PM/xtNa/0XLd8sv6aTKDxNCKo=\",\"b64IV\": \"YYkcoq6ow8hnGwHkRPsdDQ==\",\"id\": 1}")
     let seedJson = JSON.parse(ArraySeed)
-    let iv = (seedJson.b64IV)
+    //let iv = (seedJson.b64IV)
     console.log(seedJson)
      let stringjson = ("{\"deviceId\":\"8f25831d-be37-48fb-9539-84cef7da22cc\",\"username\":\"USERAPI-161-35A2FF\"}")
     let dataSet = JSON.parse(stringjson)

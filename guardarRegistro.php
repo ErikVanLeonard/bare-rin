@@ -15,7 +15,7 @@ if(isset($_POST['btnGuardarActo'])){
         die("Query Failed - Error");
     }
 
-   // $_SESSION['message'] = 'Guardado Satisfactoriamente';
+    // $_SESSION['message'] = 'Guardado Satisfactoriamente';
     //$_SESSION['message_type'] = 'success';
 
 
